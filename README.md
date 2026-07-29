@@ -45,8 +45,8 @@ EOF
 # Scrape up to 10 pages (default)
 python scraper.py
 
-# SCrape more pages
-SCOLARSHIP_PAGES=50 python scraper.py
+# Scrape more pages
+SCHOLARSHIP_PAGES=50 python scraper.py
 
 # Use a custom database connection
 NEON_URL="your_connection_string" python scraper.py
@@ -84,7 +84,7 @@ Example Output:
 
 Example output:
 ```
-Navigating to https://scholarshipdb.net/scholarships-in-Germany?page=1
+Navigating to https://scholarshipdb.net/scholarships?q=Medical%20Sciences&page=1
 Found 15 PhD/Doctorate scholarship entries on this page. Filtering for medical relevance...
    -> 🎉 MATCH FOUND: Clinical Research PhD Position in Berlin
    -> 🎉 MATCH FOUND: Medical Sciences Doctoral Fellowship
@@ -132,12 +132,12 @@ The scraper uses comprehensive regex patterns to identify:
 ```
 med_phd_scraper/
 ├── scraper.py          # Main scraping logic and orchestrator
+├── view_results.py     # Utility script to view database contents
 ├── filter.py           # Medical content filtering module
 ├── database.py         # PostgreSQL database operations
-├── debug_scraper.py    # Development/debugging tool
 ├── requirements.txt    # Python dependencies
-├── .env               # Environment configuration
-└── README.md          # This file
+├── .env.example        # Environment variables template
+└── README.md           # This file
 ```
 
 ## 🔧 Configuration
@@ -180,7 +180,6 @@ If Cloudflare blocks scraping:
 ### No Results Found
 - Check if the target URL has changed
 - Verify filtering patterns match current page structure
-- Run `debug_scraper.py` to analyze page content
 
 ## 📝 License
 
@@ -193,7 +192,7 @@ MIT License - Feel free to use this project for educational and commercial purpo
 
 ## 🙏 Acknowledgments
 
-- Playwright community for the excellent scraping library
+- SeleniumBase community for the excellent scraping framework
 - Neon DB for the free cloud database service
 - ScholarshipDB for hosting the scholarship listings
 

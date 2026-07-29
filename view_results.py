@@ -40,9 +40,9 @@ def view_recent_matches(limit=10):
         if not rows:
             print("No medical PhD positions found in the database yet.")
         else:
-            print(f"{"="*60}")
+            print("=" * 60)
             print(f"🏥 MOST RECENT MEDICAL PHD POSITIONS ({len(rows)})")
-            print(f"{"="*60}\n")
+            print("=" * 60 + "\n")
 
             for row in rows:
                 job_id, title, url = row
